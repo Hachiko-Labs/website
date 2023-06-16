@@ -1,0 +1,19 @@
+---
+import Landing from "../../layouts/Landing.astro";
+import Navbar from "./components/Navbar.astro";
+import Hero from "./components/Hero.astro";
+import Step1 from "./components/HowItWorks/Step1.astro";
+---
+
+<Landing
+  title="Hachiko: Find your dream job"
+  meta={{
+    name: "hachiko-labs",
+    content:
+      "We're making it easy for everyone to find their dream job and companies to find their dream team.",
+  }}
+>
+  <Navbar />
+  <Hero />
+  <Step1 />
+</Landing>
