@@ -1,0 +1,40 @@
+---
+import { Image } from '@astrojs/image/components';
+
+type Item = {
+  icon?: string;
+  alt: string;
+  link?: string;
+};
+interface Props {
+  items: Item [];
+};
+
+const { items } = Astro.props;
+---
+
+<div class="slider shrink-0" data-slider>
+  <ul class="flex gap-12">
+    {items.map(({ icon, alt }) => (
+      <li class="flex items-center justify-center">
+        <Image src={icon} alt={alt} width={44} height={44} format="svg" />
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style is:inline>
+  @keyframes slider {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .slider {
+    animation: slider linear infinite;
+    animation-duration: 10s;
+  }
+</style>
