@@ -1,0 +1,13 @@
+---
+export interface Astro {
+  bgColor?: string;
+  color?: string;
+  icon: string;
+}
+
+const { bgColor = 'bg-neutral-300', color = 'text-neutral-600', icon, size = '25px' } = Astro.props;
+---
+
+<div class=`w-[50px] h-[50px] flex flex-1 justify-center items-center rounded-full ${bgColor} ${color}`>
+  <span class={`icon-${icon}`} style=`width: ${size}; height: ${size};` />
+</div>

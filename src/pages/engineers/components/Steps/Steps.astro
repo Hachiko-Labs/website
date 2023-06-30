@@ -1,0 +1,25 @@
+---
+export interface Astro {
+  title?: string;
+  step: string;
+  fromColor?: string;
+  toColor?: string;
+}
+
+const { title, step, fromColor, toColor } = Astro.props;
+---
+
+<div
+      class="text-neutral-500 text-base lg:text-lg xl:text-xl sm:text-base flex flex-col items-center"
+    >
+  {title}
+  <div
+    class=`w-[1px] h-36 mt-1 bg-gradient-to-b from-white from-0% via-${fromColor.split('from-')[1]} ${toColor} to-100%`
+  >
+  </div>
+  <div
+    class=`w-[35px] h-[35px] flex items-center justify-center rounded-full bg-gradient-to-l ${fromColor} ${toColor}`
+  >
+    <span class="text-white">{step}</span>
+  </div>
+</div>

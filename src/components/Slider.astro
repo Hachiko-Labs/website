@@ -8,19 +8,24 @@ type Item = {
 };
 interface Props {
   items: Item [];
+  repeat?: number;
 };
 
-const { items } = Astro.props;
+const { items, repeat } = Astro.props;
 ---
 
-<div class="slider shrink-0" data-slider>
-  <ul class="flex gap-12">
-    {items.map(({ icon, alt }) => (
-      <li class="flex items-center justify-center">
-        <Image src={icon} alt={alt} width={44} height={44} format="svg" />
-      </li>
-    ))}
-  </ul>
+<div class="group flex overflow-hidden">
+  {Array.from({ length: repeat ?? 3 }, (_, i) => (
+    <div class="slider shrink-0 pr-12" data-slider>
+      <ul class="flex gap-12">
+        {items.map(({ icon, alt }) => (
+          <li class="flex items-center justify-center">
+            <Image src={icon} alt={alt} width={44} height={44} format="svg" />
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))}
 </div>
 
 <style is:inline>
