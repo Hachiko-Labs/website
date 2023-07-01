@@ -6,5 +6,6 @@ import image from "@astrojs/image";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), react(), image()]
+  integrations: [tailwind(), react(), image()],
+  output: 'server'
 });

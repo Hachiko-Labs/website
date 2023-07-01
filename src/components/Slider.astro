@@ -15,7 +15,7 @@ const { items, repeat } = Astro.props;
 ---
 
 <div class="group flex overflow-hidden">
-  {Array.from({ length: repeat ?? 3 }, (_, i) => (
+  {Array.from({ length: repeat ?? 3 }, () => (
     <div class="slider shrink-0 pr-12" data-slider>
       <ul class="flex gap-12">
         {items.map(({ icon, alt }) => (
@@ -40,6 +40,6 @@ const { items, repeat } = Astro.props;
 
   .slider {
     animation: slider linear infinite;
-    animation-duration: 10s;
+    animation-duration: 60s;
   }
 </style>

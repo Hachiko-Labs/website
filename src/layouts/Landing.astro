@@ -3,6 +3,7 @@ import '@fontsource/inter';
 import '@fontsource/inter/400.css'
 import '@fontsource/inter/600.css'
 import '@fontsource/inter/700.css'
+import { Sprite } from 'astro-icon';
 
 const { title, meta } = Astro.props;
 ---
@@ -21,7 +22,9 @@ const { title, meta } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <slot />
+    <Sprite.Provider>
+      <slot />
+    </Sprite.Provider>
 
     <style is:global>
       html,body {
