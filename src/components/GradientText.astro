@@ -8,6 +8,6 @@ export interface Props {
 const { text, fromColor, toColor } = Astro.props;
 ---
 
-<span class={`inline text-transparent bg-clip-text bg-gradient-to-l from-${fromColor} to-${toColor} to-70%`}>
+<span class={`inline text-transparent bg-clip-text bg-gradient-to-l ${fromColor} ${toColor} to-70%`}>
   {text}
 </span>
