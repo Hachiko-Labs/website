@@ -1,6 +1,4 @@
 ---
-import { Image } from '@astrojs/image/components';
-
 type Item = {
   icon?: string;
   alt: string;
@@ -20,7 +18,7 @@ const { items, repeat } = Astro.props;
       <ul class="flex gap-12">
         {items.map(({ icon, alt }) => (
           <li class="flex items-center justify-center">
-            <Image src={icon} alt={alt} width={44} height={44} format="svg" />
+            <img src={icon} alt={alt} width="44" />
           </li>
         ))}
       </ul>

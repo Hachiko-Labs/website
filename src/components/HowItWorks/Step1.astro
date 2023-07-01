@@ -1,10 +1,11 @@
 ---
 import Title from "@components/Title.astro";
 import MaterialIcon from "@components/MaterialIcon.astro";
+import GradientText from "@components/GradientText.astro";
 
 import Steps from "../Steps/Steps.astro";
 
-const { default: Graphics } = await import('@images/svgs/graphics.svg?raw');
+const { default: Graphics } = await import("@images/svgs/graphics.svg?raw");
 ---
 
 <section class="w-full mb-8 sm:mb-16 xl:m pt-[2rem] md:pt-[12vw] lg:pt-0">
@@ -12,9 +13,11 @@ const { default: Graphics } = await import('@images/svgs/graphics.svg?raw');
     class="text-center mx-auto md:w-[800px] xl:w-[900px] flex flex-col justify-center items-center px-4 md:px-8"
   >
     <Title>
-      Unlock a new level of job search, with a <span class="text-primary"
-        >personalized</span
-      > approach.
+      Unlock a new level of job search, with a <GradientText
+        fromColor="neutral"
+        toColor="primary-active"
+        text="Personalized"
+      ></GradientText> approach.
     </Title>
     <div
       class="text-neutral-500 text-lg lg:text-xl xl:text-2xl sm:text-lg mt-6"
@@ -24,19 +27,23 @@ const { default: Graphics } = await import('@images/svgs/graphics.svg?raw');
       values.
     </div>
   </div>
-  <div class="flex flex-wrap items-center justify-center gap-16 mt-20 mb-8 sm:mt-16 sm:mb-16 px-4 md:px-8">
-    <div class="w-full md:w-9/12 lg:w-6/12 xl:w-4/12">
+  <div
+    class="flex flex-wrap items-center justify-center gap-16 mt-20 mb-8 sm:mt-16 sm:mb-16 px-4 md:px-8"
+  >
+    <div class="w-full md:w-7/12 lg:w-6/12 xl:w-4/12">
       <Fragment set:html={Graphics} />
     </div>
-    <div class="w-full md:w-9/12 lg:w-5/12 xl:w-4/12 flex flex-col gap-8 items-center">
+    <div
+      class="w-full md:w-8/12 lg:w-5/12 xl:w-4/12 flex flex-col gap-8 items-center"
+    >
       <div class="w-5/6 flex flex-col gap-4">
         <MaterialIcon size={40} icon="auto-awesome" />
         <span class="text-xl md:text-xl font-bold text-neutral">
           Personalized job matching
         </span>
         <p class="text-neutral-500 text-base md:text-sm">
-          Create a profile with your unique skills, experience, and career 
-          goals to get matched with job opportunities that fit your needs.
+          Create a profile with your unique skills, experience, and career goals
+          to get matched with job opportunities that fit your needs.
         </p>
       </div>
       <div class="w-5/6 flex flex-col gap-4">
@@ -45,11 +52,16 @@ const { default: Graphics } = await import('@images/svgs/graphics.svg?raw');
           Streamlined application process
         </span>
         <p class="text-neutral-500 text-base md:text-sm">
-          Say goodbye to long, tedious application forms and say hello to a 
-          fast and efficient way to apply for your dream job.
+          Say goodbye to long, tedious application forms and say hello to a fast
+          and efficient way to apply for your dream job.
         </p>
       </div>
     </div>
   </div>
-  <Steps step="2" highlight="Connect" fromColor="from-secondary-color3" toColor="to-primary-active" />
+  <Steps
+    step="2"
+    highlight="Connect"
+    fromColor="from-secondary-color3"
+    toColor="to-primary-active"
+  />
 </section>

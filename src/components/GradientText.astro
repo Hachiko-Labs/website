@@ -1,0 +1,13 @@
+---
+export interface Props {
+  text: string;
+  fromColor: string;
+  toColor: string;
+}
+
+const { text, fromColor, toColor } = Astro.props;
+---
+
+<span class={`inline text-transparent bg-clip-text bg-gradient-to-l from-${fromColor} to-${toColor} to-70%`}>
+  {text}
+</span>

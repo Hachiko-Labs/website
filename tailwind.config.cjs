@@ -14,9 +14,11 @@ module.exports = {
 				neutral: {
 					DEFAULT: '#211f54',
 					100: '#FFFFFF',
+					200: '#F7F7FC',
 					300: '#EFF0F6',
 					500: '#a0a3bd',
 					600: '#6E7191',
+					border: '#DCDDEB'
 				},
 				warning: {
 					400: '#FDBD1A',

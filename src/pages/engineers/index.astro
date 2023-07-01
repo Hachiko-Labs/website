@@ -7,6 +7,27 @@ import Step3 from "@components/HowItWorks/Step3.astro";
 import { FAQ } from "@components/FAQ";
 
 import Landing from "../../layouts/Landing.astro";
+import Footer from "@components/Footer.astro";
+
+const navItems = [
+  { label: 'For Engineers', href: '', isMenu: false },
+  { label: 'How it works', href: "#how-it-works", ariaLabel: "How it works", isMenu: true },
+  { label: 'FAQ', href: '' }
+];
+
+const footerData = [
+  {
+    title: "About"
+  },
+  {
+    title: "How it works",
+    href: "#how-it-works",
+    ariaLabel: "How it works"
+  },
+  {
+    title: "Vetting process"
+  },
+];
 ---
 
 <Landing
@@ -17,10 +38,11 @@ import Landing from "../../layouts/Landing.astro";
       "We're making it easy for everyone to find their dream job and companies to find their dream team.",
   }}
 >
-  <Navbar />
+  <Navbar navItems={navItems} />
   <Hero />
   <Step1 />
   <Step2 />
   <Step3 />
   <FAQ client:load />
+  <Footer footerData={footerData} />
 </Landing>
