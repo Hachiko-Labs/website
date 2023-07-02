@@ -1,3 +1,48 @@
 ---
-return Astro.redirect('/engineers');
+import Navbar from "@components/Navbar.astro";
+import Hero from "@components/Hero.astro";
+import Step1 from "@components/HowItWorks/Step1.astro";
+import Step2 from "@components/HowItWorks/Step2.astro";
+import Step3 from "@components/HowItWorks/Step3.astro";
+import { FAQ } from "@components/FAQ";
+
+import Landing from "../layouts/Landing.astro";
+import Footer from "@components/Footer.astro";
+
+const navItems = [
+  { label: "For Companies", href: "" },
+  { label: "How it works", href: "#how-it-works", ariaLabel: "How it works" },
+  { label: "FAQ", href: "" },
+];
+
+const footerData = [
+  {
+    title: "About",
+  },
+  {
+    title: "How it works",
+    href: "#how-it-works",
+    ariaLabel: "How it works",
+  },
+  {
+    title: "Vetting process",
+  },
+];
 ---
+
+<Landing
+  title="Hachiko: Find your dream job"
+  meta={{
+    name: "hachiko-labs",
+    content:
+      "We're making it easy for everyone to find their dream job and companies to find their dream team.",
+  }}
+>
+  <Navbar navItems={navItems} />
+  <Hero />
+  <Step1 />
+  <Step2 />
+  <Step3 />
+  <FAQ client:load />
+  <Footer footerData={footerData} />
+</Landing>
