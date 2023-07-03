@@ -2,8 +2,7 @@
 import GradientText from "@components/GradientText.astro";
 import Steps from "@components/Steps/Steps.astro";
 import Title from "@components/Title.astro";
-
-const { default: ZoomCall } = await import("@images/svgs/zoomcall.svg?raw");
+import zoomCall from "@images/svgs/zoomcall.svg";
 ---
 
 <section
@@ -29,7 +28,7 @@ const { default: ZoomCall } = await import("@images/svgs/zoomcall.svg?raw");
     </div>
   </div>
   <div class="mt-8 w-full md:w-7/12 lg:w-5/12 xl:w-4/12">
-    <Fragment set:html={ZoomCall} />
+    <img src={zoomCall} alt="first call interview" />
   </div>
   <Steps
     step="3"
