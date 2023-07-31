@@ -1,3 +1,31 @@
 ---
-return Astro.redirect('/engineers');
+import Navbar from "@components/Navbar.astro";
+import Hero from "@components/Partners/Hero.astro";
+
+import Layout from "../layouts/Landing.astro"
+import Step1 from "@components/Partners/HowItWorks/Step1.astro";
+import Step2 from "@components/Partners/HowItWorks/Step2.astro";
+import Step3 from "@components/Partners/HowItWorks/Step3.astro";
+
+const navItems = [
+  { label: "For Engineers", href: "/engineers" },
+  { label: "How it works", href: "#how-it-works", ariaLabel: "How it works" },
+  { label: "Pricing", href: "/partners/pricing" },
+  { label: "FAQ", href: "#faq" },
+];
 ---
+
+<Layout
+  title="Hachiko: Find and hire remote top software talent"
+  meta={{
+    name: "hachiko-labs",
+    content:
+      "We're helping US startups hire high-performing, remote software engineers to scale faster and more competitively.",
+  }}
+>
+  <Navbar navItems={navItems} />
+  <Hero />
+  <Step1 />
+  <Step2 />
+  <Step3 />
+</Layout>

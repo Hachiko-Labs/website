@@ -2,9 +2,9 @@
 import { Button } from "@hachiko-labs/ui-components";
 
 import HeroTitle from "@components/HeroTitle.astro";
-import Slider from "@components/Slider.astro";
+import { Slider } from "@components/Slider";
 import Steps from "@components/Steps/Steps.astro";
-import GradientText from "./GradientText.astro";
+import GradientText from "../GradientText.astro";
 
 const logos = [
   { icon: "/assets/nextjs.svg", alt: "Next JS" },
@@ -51,7 +51,15 @@ const logos = [
       <div
         class="w-[60vw] md:w-[50vw] sm:w-[80vw] relative flex flex-wrap items-center justify-center gap-x-14 gap-y-6 overflow-hidden before:w-20 before:bg-gradient-to-l before:from-white before:to-transparent before:top-0 before:bottom-0 before:content-[''] before:z-10 before:absolute before:right-0 after:w-20 after:bg-gradient-to-r after:from-white after:to-transparent after:top-0 after:bottom-0 after:content-[''] after:z-10 after:absolute after:left-0"
       >
-        <Slider items={logos} />
+        <Slider>
+          <ul class="flex gap-12">
+            {logos.map(({ icon, alt }) => (
+              <li class="flex items-center justify-center">
+                <img src={icon} alt={alt} width="44" />
+              </li>
+            ))}
+          </ul>
+        </Slider>
       </div>
     </div>
     <div id="how-it-works">
