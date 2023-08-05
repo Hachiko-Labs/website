@@ -10,6 +10,8 @@ export interface Props {
 }
 
 const { navItems } = Astro.props;
+
+const platformUrl = import.meta.env.PLATFORM_URL
 ---
 
 <nav class="w-full h-20 fixed flex justify-center items-center backdrop-blur-xl bg-neutral-100/40 z-40">
@@ -36,6 +38,8 @@ const { navItems } = Astro.props;
         </a>
       ))}
     </div>
-    <Button client:visible type="primary">Sign up</Button>
+    <a href={platformUrl} target="_blank">
+      <Button client:visible type="primary">Sign up</Button>
+    </a>
   </div>
 </nav>
