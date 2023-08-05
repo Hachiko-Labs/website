@@ -31,7 +31,7 @@ const { navItems } = Astro.props;
     </a>
     <div class="hidden lg:flex h-full pr-12">
       {navItems.map((navItem) => (
-        <a class="flex items-center h-full px-4 text-dark" href={navItem.href} aria-label={navItem.ariaLabel}>
+        <a class="flex items-center h-full px-4 text-neutral" href={navItem.href} aria-label={navItem.ariaLabel}>
           {navItem.label}
         </a>
       ))}

@@ -1,13 +1,13 @@
 ---
-import '../styles/globals.css';
-import '@fontsource/inter';
-import '@fontsource/inter/400.css'
-import '@fontsource/inter/600.css'
-import '@fontsource/inter/700.css'
-import { Sprite } from 'astro-icon';
+import "../styles/globals.css";
+import "@fontsource/inter";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
+import { Sprite } from "astro-icon";
 
-import Navbar from '@components/Navbar.astro';
-import Footer from '@components/Footer.astro';
+import Navbar from "@components/Navbar.astro";
+import Footer from "@components/Footer.astro";
 
 const { title, meta } = Astro.props;
 
@@ -19,15 +19,26 @@ const navItems = [
 
 const footerData = [
   {
-    title: "About",
+    title: "Partners",
+    items: [
+      { title: "Vetting Process", href: "#how-it-works" },
+      { title: "Pricing", href: "" },
+      { title: "FAQ", href: "#FAQ-Box" },
+    ],
   },
   {
-    title: "How it works",
-    href: "#how-it-works",
-    ariaLabel: "How it works",
+    title: "Engineers",
+    items: [
+      { title: "How it works", href: "#how-it-works" },
+      { title: "FAQ", href: "#FAQ-Box" },
+    ],
   },
   {
-    title: "Vetting process",
+    title: "Company",
+    items: [
+      { title: "About Us", href: "" },
+      { title: "Contact Us", href: "" }
+    ],
   },
 ];
 ---
@@ -39,10 +50,7 @@ const footerData = [
     <link rel="mask-icon" href="/favicon.svg" color="#4a3aff" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <meta
-      name={meta?.name}
-      content={meta?.content}
-    />
+    <meta name={meta?.name} content={meta?.content} />
     <title>{title}</title>
   </head>
   <body>
@@ -54,10 +62,11 @@ const footerData = [
     <Footer footerData={footerData} />
 
     <style is:global>
-      html,body {
+      html,
+      body {
         margin: 0;
         padding: 0;
-        font-family: 'Inter', sans-serif;
+        font-family: "Inter", sans-serif;
         scroll-behavior: smooth;
       }
     </style>
