@@ -1,0 +1,61 @@
+---
+import GradientText from "@components/GradientText.astro";
+import MaterialIcon from "@components/MaterialIcon.astro";
+import Title from "@components/Title.astro";
+
+const { default: Email } = await import("@images/svgs/email.svg?raw");
+---
+
+<section
+  class="w-full text-center flex flex-col items-center mb-8 sm:mb-16 xl:m pt-[2rem] md:pt-[12vw] lg:pt-0 px-4 md:px-8"
+>
+  <div
+    class="text-center mx-auto md:w-[600px] xl:w-[700px] flex flex-col justify-center items-center"
+  >
+    <Title>
+      Discover your perfect 
+      <GradientText
+        fromColor="from-secondary-color3"
+        toColor="to-warning-400"
+        text="Startup"
+      /> match
+    </Title>
+    <div
+      class="text-neutral-500 text-lg lg:text-xl xl:text-2xl sm:text-lg mt-6"
+    >
+      We'll connect you with startups that align with your skills, interests,
+      and career goals, making your job search easier and more efficient.
+    </div>
+  </div>
+  <div
+    class="flex flex-wrap items-center justify-center gap-16 mt-20 mb-8 sm:mt-16 sm:mb-16 px-4 md:px-8"
+  >
+    <div class="w-full md:w-7/12 lg:w-6/12 xl:w-6/12">
+      <Fragment set:html={Email} />
+    </div>
+    <div
+      class="w-full md:w-7/12 lg:w-5/12 xl:w-5/12 flex flex-col gap-8 justify-center items-center"
+    >
+      <div class="w-5/6 flex flex-col gap-4 text-left">
+        <MaterialIcon size={40} icon="attach-money" />
+        <span class="text-xl md:text-xl font-bold text-neutral">
+          Earn 3-5x local rates on average
+        </span>
+        <p class="text-neutral-500 text-base md:text-sm">
+          You'll earn above average salaries, paid on a monthly basis, always in
+          USD.
+        </p>
+      </div>
+      <div class="w-5/6 flex flex-col gap-4 text-left">
+        <MaterialIcon size={40} icon="bank" />
+        <span class="text-xl md:text-xl font-bold text-neutral">
+          Paid direct to your bank every 2 weeks
+        </span>
+        <p class="text-neutral-500 text-base md:text-sm">
+          Say goodbye to delays and paperwork, and embrace the ease of receiving
+          regular payments that help you stay financially empowered
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

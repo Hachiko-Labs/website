@@ -1,0 +1,45 @@
+---
+import { Button } from '@hachiko-labs/ui-components';
+
+export interface Props {
+  navItems: {
+    label: string;
+    href: string;
+    ariaLabel?: string;
+  }[];
+}
+
+const { navItems } = Astro.props;
+
+const platformUrl = import.meta.env.PLATFORM_URL
+---
+
+<nav class="w-full h-20 fixed flex justify-center items-center backdrop-blur-xl bg-neutral-100/40 z-40">
+  <div class="w-11/12 h-full flex items-center justify-between relative">
+    <a class="flex items-center gap-2" href="/" aria-label="Home">
+      <svg width="30" height="30" viewBox="0 0 181 148" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0.642578" y="0.873047" width="179.381" height="42.433" rx="21.2165" fill="#3027D9"/>
+        <rect x="23.0649" y="52.3988" width="134.536" height="42.433" rx="21.2165" fill="#4A3AFF"/>
+        <rect x="52.9624" y="105.44" width="74.7423" height="42.433" rx="21.2165" fill="#7663FF"/>
+      </svg>
+      <div class="text-neutral font-[Inter] font-bold flex gap-1">
+        <div class="text-xl">
+          Hachiko
+        </div>
+        <div class="text-primary text-xl">
+          Labs
+        </div>
+      </div>
+    </a>
+    <div class="hidden lg:flex h-full pr-12">
+      {navItems.map((navItem) => (
+        <a class="flex items-center h-full px-4 text-neutral" href={navItem.href} aria-label={navItem.ariaLabel}>
+          {navItem.label}
+        </a>
+      ))}
+    </div>
+    <a href={platformUrl} target="_blank">
+      <Button client:visible type="primary">Sign up</Button>
+    </a>
+  </div>
+</nav>
