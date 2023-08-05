@@ -37,7 +37,7 @@ const logos = [
     </div>
     <div class="flex flex-col sm:flex-row my-16 sm:my-12 justify-center">
       <Button client:visible type="primary" id="apply-now">
-        Join the waitlist
+        Get Started
       </Button>
     </div>
     <div
@@ -68,7 +68,8 @@ const logos = [
 
 <script type="module">
   const handleOnClick = () => {
-    console.log("Hello World");
+    const platformUrl = import.meta.env.PLATFORM_URL
+    window.open(platformUrl, '_blank');
   };
 
   const applyNowButton = document.getElementById("apply-now");

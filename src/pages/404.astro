@@ -10,7 +10,9 @@ import Landing from '../layouts/Landing.astro'
       <span class="text-md sm:text-xl text-center my-4">
         The page you are looking for doesn't exist.
       </span>
-      <Button type="primary">head back home</Button>
+      <a href="/">
+        <Button client:load type="primary">Back to home</Button>
+      </a>
     </div>
   </section>
 </Landing>
