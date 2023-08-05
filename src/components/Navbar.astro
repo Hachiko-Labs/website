@@ -10,6 +10,8 @@ export interface Props {
 }
 
 const { navItems } = Astro.props;
+
+const platformUrl = import.meta.env.PLATFORM_URL
 ---
 
 <nav class="w-full h-20 fixed flex justify-center items-center backdrop-blur-xl bg-neutral-100/40 z-40">
@@ -31,11 +33,13 @@ const { navItems } = Astro.props;
     </a>
     <div class="hidden lg:flex h-full pr-12">
       {navItems.map((navItem) => (
-        <a class="flex items-center h-full px-4 text-dark" href={navItem.href} aria-label={navItem.ariaLabel}>
+        <a class="flex items-center h-full px-4 text-neutral" href={navItem.href} aria-label={navItem.ariaLabel}>
           {navItem.label}
         </a>
       ))}
     </div>
-    <Button client:visible type="primary">Sign up</Button>
+    <a href={platformUrl} target="_blank">
+      <Button client:visible type="primary">Sign up</Button>
+    </a>
   </div>
 </nav>

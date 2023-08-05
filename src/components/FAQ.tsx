@@ -10,7 +10,7 @@ interface Props {
 }
 
 export const FAQ = ({ faqData }: Props) => (
-  <section className="relative pt-16 pb-16 overflow-hidden">
+  <section className="relative pt-16 pb-16 overflow-hidden" id="FAQ-Box">
     <div className="absolute -top-10" id="FAQ" />
     <div className="relative z-10 container px-2 sm:px-8 lg:px-4 mx-auto w-11/12 sm:w-full">
       <div className="md:max-w-4xl mx-auto">
@@ -23,10 +23,7 @@ export const FAQ = ({ faqData }: Props) => (
         <div className="mb-11 flex flex-wrap -m-1">
           {faqData.map((item, index) => (
             <div className="w-full p-1" key={`${item.question}-${item.answer}`}>
-              <FAQBox
-                title={item.question}
-                content={item.answer}
-              />
+              <FAQBox title={item.question} content={item.answer} />
             </div>
           ))}
         </div>

@@ -14,9 +14,10 @@ const logos = [
   { icon: "/assets/Astro.svg", alt: "Astro" },
   { icon: "/assets/NodeJS.svg", alt: "Node JS" },
 ];
+const platformUrl = import.meta.env.PLATFORM_URL
 ---
 
-<section class="w-screen flex items-center justify-center text-center pb-12">
+<section class="w-full flex items-center justify-center text-center pb-12">
   <div
     class="w-full md:w-[800px] xl:w-[900px] flex flex-col justify-center items-center pt-52 px-4 md:px-8"
   >
@@ -36,9 +37,11 @@ const logos = [
       top-tier US startups
     </div>
     <div class="flex flex-col sm:flex-row my-16 sm:my-12 justify-center">
-      <Button client:visible type="primary" id="apply-now">
-        Schedule a call
-      </Button>
+      <a href={platformUrl} target="_blank">
+        <Button client:visible type="primary">
+          Get Started
+        </Button>
+      </a>
     </div>
     <div
       class="flex flex-wrap flex-col items-center gap-y-6 px-4 mb-16 sm:mb-12"
@@ -73,12 +76,3 @@ const logos = [
     </div>
   </div>
 </section>
-
-<script type="module">
-  const handleOnClick = () => {
-    console.log("Hello World");
-  };
-
-  const applyNowButton = document.getElementById("apply-now");
-  applyNowButton.addEventListener("click", handleOnClick);
-</script>

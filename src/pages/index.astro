@@ -2,47 +2,44 @@
 import Navbar from "@components/Navbar.astro";
 import Hero from "@components/Partners/Hero.astro";
 
-import Layout from "../layouts/Landing.astro"
+import Layout from "../layouts/Landing.astro";
 import Step1 from "@components/Partners/HowItWorks/Step1.astro";
 import Step2 from "@components/Partners/HowItWorks/Step2.astro";
 import Step3 from "@components/Partners/HowItWorks/Step3.astro";
 import { FAQ } from "@components/FAQ";
-import Footer from "@components/Footer.astro";
 
 const FAQData = [
   {
-    question: "What is Hachiko Labs?",
+    question: "How do I start?",
     answer:
       "Yes, you can easily upgrade or downgrade your plan at any time. Simply navigate to the account settings in your dashboard and choose the desired plan. The changes will be reflected immediately, and any adjustments in pricing will be applied on your next billing cycle. Our support team is more than happy to provide guidance and recommendations.",
   },
   {
-    question: "How is Hachiko Labs different from other remote job marketplaces?",
+    question: "How do you vet your Engineers?",
     answer:
       "To claim your 25% discount, simply sign up for an account and enter the promotional code at checkout. The discount will be applied automatically to your purchase.",
   },
   {
-    question: "How can I get paid in USD while working outside of the US?",
+    question: "How do I hire an Engineer from you?",
     answer:
       "We offer a 30-day money-back guarantee on all our plans. If you're not satisfied with our product, simply contact our support team within 30 days of purchase for a full refund.",
   },
   {
-    question: "What kind of companies does Hachiko Labs partner with?",
+    question: "Can I request a tech interview / live coding/ test task?",
     answer:
       "Our dedicated support team is here to help. You can reach out to us through the contact form on our website, send an email, or engage with us via live chat. We'll be happy to assist you with any questions or concerns you may have",
   },
-];
-
-const footerData = [
   {
-    title: "About",
+    question:
+      "Do you use software to track the developer’s progress/working hours?",
+    answer:
+      "Our dedicated support team is here to help. You can reach out to us through the contact form on our website, send an email, or engage with us via live chat. We'll be happy to assist you with any questions or concerns you may have",
   },
   {
-    title: "How it works",
-    href: "#how-it-works",
-    ariaLabel: "How it works",
-  },
-  {
-    title: "Vetting process",
+    question:
+      "I don’t like the developer, it’s not working out. how can you help me?",
+    answer:
+      "Our dedicated support team is here to help. You can reach out to us through the contact form on our website, send an email, or engage with us via live chat. We'll be happy to assist you with any questions or concerns you may have",
   },
 ];
 
@@ -50,7 +47,7 @@ const navItems = [
   { label: "For Engineers", href: "/engineers" },
   { label: "How it works", href: "#how-it-works", ariaLabel: "How it works" },
   { label: "Pricing", href: "/partners/pricing" },
-  { label: "FAQ", href: "#faq" },
+  { label: "FAQ", href: "#FAQ-Box" },
 ];
 ---
 
@@ -68,5 +65,4 @@ const navItems = [
   <Step2 />
   <Step3 />
   <FAQ client:load faqData={FAQData} />
-  <Footer footerData={footerData} />
 </Layout>
