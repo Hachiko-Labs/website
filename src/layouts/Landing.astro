@@ -1,11 +1,35 @@
 ---
+import '../styles/globals.css';
 import '@fontsource/inter';
 import '@fontsource/inter/400.css'
 import '@fontsource/inter/600.css'
 import '@fontsource/inter/700.css'
 import { Sprite } from 'astro-icon';
 
+import Navbar from '@components/Navbar.astro';
+import Footer from '@components/Footer.astro';
+
 const { title, meta } = Astro.props;
+
+const navItems = [
+  { label: "For Companies", href: "" },
+  { label: "How it works", href: "#how-it-works", ariaLabel: "How it works" },
+  { label: "FAQ", href: "#FAQ-Box" },
+];
+
+const footerData = [
+  {
+    title: "About",
+  },
+  {
+    title: "How it works",
+    href: "#how-it-works",
+    ariaLabel: "How it works",
+  },
+  {
+    title: "Vetting process",
+  },
+];
 ---
 
 <!DOCTYPE html>
@@ -16,15 +40,18 @@ const { title, meta } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta
-      name={meta.name}
-      content={meta.content}
+      name={meta?.name}
+      content={meta?.content}
     />
     <title>{title}</title>
   </head>
   <body>
+    <Navbar navItems={navItems} />
     <Sprite.Provider>
       <slot />
     </Sprite.Provider>
+
+    <Footer footerData={footerData} />
 
     <style is:global>
       html,body {

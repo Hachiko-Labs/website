@@ -1,0 +1,16 @@
+---
+import { Button } from '@hachiko-labs/ui-components';
+import Landing from '../layouts/Landing.astro'
+---
+
+<Landing title="Page not found">
+  <section class="flex items-center justify-center overflow-hidden max-h-screen-nav-footer">
+    <div class="flex gap-2 flex-col items-center text-neutral">
+      <h1 class="text-9xl font-semibold">404</h1>
+      <span class="text-md sm:text-xl text-center my-4">
+        The page you are looking for doesn't exist.
+      </span>
+      <Button type="primary">head back home</Button>
+    </div>
+  </section>
+</Landing>

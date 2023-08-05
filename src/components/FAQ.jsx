@@ -4,27 +4,28 @@ const FAQData = [
   {
     question: "What is Hachiko Labs?",
     answer:
-      "Yes, you can easily upgrade or downgrade your plan at any time. Simply navigate to the account settings in your dashboard and choose the desired plan. The changes will be reflected immediately, and any adjustments in pricing will be applied on your next billing cycle. Our support team is more than happy to provide guidance and recommendations.",
+      "Hachiko Labs is a cutting-edge staffing solutions provider that bridges the gap between top talent and companies. Our mission is to make it effortless for individuals to find their dream jobs and for companies to discover their dream teams through innovative technology. We are committed to simplicity, innovation, fairness, quality, speed, transparency, and caring, and our vision is to be the leading provider of staffing solutions worldwide.",
   },
   {
-    question: "How is Hachiko Labs different from other remote job marketplaces?",
+    question:
+      "How is Hachiko Labs different from other remote job marketplaces?",
     answer:
-      "To claim your 25% discount, simply sign up for an account and enter the promotional code at checkout. The discount will be applied automatically to your purchase.",
+      "Hachiko Labs stands out from other remote job marketplaces with its cutting-edge technology, which simplifies the process of connecting top talent with great companies. Our focus on innovation, fairness, quality, and speed sets us apart, ensuring a transparent and caring platform that bridges the gap between top talent and companies seeking their dream teams.",
   },
   {
     question: "How can I get paid in USD while working outside of the US?",
     answer:
-      "We offer a 30-day money-back guarantee on all our plans. If you're not satisfied with our product, simply contact our support team within 30 days of purchase for a full refund.",
+      "To get paid in USD while working outside of the US, you can negotiate your salary with our partners, and we'll pay 100% of it. We use platforms like Wise or Deel to facilitate payments according to your needs. Please note that you'll be responsible for handling local taxes, and we recommend consulting a tax professional in your country for guidance.",
   },
   {
     question: "What kind of companies does Hachiko Labs partner with?",
     answer:
-      "Our dedicated support team is here to help. You can reach out to us through the contact form on our website, send an email, or engage with us via live chat. We'll be happy to assist you with any questions or concerns you may have",
+      "Hachiko Labs primarily partners with startups located in the United States and the Americas. We aim to connect top talent with forward-thinking companies, fostering innovation and growth in the region's business landscape. Our focus on working with startups ensures exciting opportunities for both talent and companies looking to take their teams to the next level.",
   },
 ];
 
 export const FAQ = () => (
-  <section className="relative pt-16 pb-16 overflow-hidden">
+  <section className="relative pt-16 pb-16 overflow-hidden" id="FAQ-Box">
     <div className="absolute -top-10" id="FAQ" />
     <div className="relative z-10 container px-2 sm:px-8 lg:px-4 mx-auto w-11/12 sm:w-full">
       <div className="md:max-w-4xl mx-auto">
@@ -37,10 +38,7 @@ export const FAQ = () => (
         <div className="mb-11 flex flex-wrap -m-1">
           {FAQData.map((item, index) => (
             <div className="w-full p-1" key={`${item.question}-${item.answer}`}>
-              <FAQBox
-                title={item.question}
-                content={item.answer}
-              />
+              <FAQBox title={item.question} content={item.answer} />
             </div>
           ))}
         </div>
