@@ -1,0 +1,87 @@
+---
+import { Navbar } from "@components/Navbar";
+import { Checkbox } from "@components/Checkbox";
+import { PricingCard } from "@components/PricingCard";
+
+import Landing from "../../../layouts/Landing.astro";
+import GradientText from "../../../components/GradientText.astro";
+
+const navItems = [
+  { label: "For Companies", href: "/" },
+  { label: "How it works", href: "/#how-it-works", ariaLabel: "How it works" },
+  { label: "Pricing", href: "/partners/pricing" },
+  { label: "FAQ", href: "/#FAQ-Box" },
+];
+---
+
+<Landing
+  title="Pricing | Hachiko Labs"
+  meta={{
+    name: "hachiko-labs",
+    content:
+      "We're helping US startups hire high-performing, remote software engineers to scale faster and more competitively.",
+  }}
+>
+  <Navbar client:load navItems={navItems} />
+  <section class="w-screen flex justify-center relative pt-24">
+    <div class="pb-20 pt-12 2xl:w-[1150px] lg:w-[1050px] md:w-4/5">
+      <div class="container mx-auto px-4">
+        <div class="max-w-2xl mx-auto text-center mb-16">
+          <GradientText
+            text="Find Your Perfect Fit"
+            toColor="from-primary-active"
+            fromColor="to-secondary-color3"
+            class="text-xs font-bold uppercase"
+          />
+          <h2
+            class="mt-6 mb-6 text-4xl lg:text-5xl font-bold font-heading text-neutral"
+          >
+            Choose your best plan
+          </h2>
+          <p class="mb-6 text-neutral-500">
+            Select the plan that suits your needs and benefit from our staffing tool.
+          </p>
+          <Checkbox client:load onLabel="Monthly" offLabel="Yearly" />
+        </div>
+        <div
+          class="flex flex-wrap sm:flex-col md:flex-col lg:flex-row xl:flex-row -mx-4 items-center justify-center mt-20"
+        >
+          <PricingCard
+            client:load
+            plan="Sourcing"
+            description="The perfect way to get started and grow your business"
+            price={0}
+            items={[
+              "Talent match",
+              "Applicant pipeline",
+              "Slack support",
+            ]}
+          />
+          <PricingCard
+            client:load
+            plan="Platform"
+            description="Everything in Sourcing, plus higher limits and platform features"
+            price={99}
+            highlight
+            items={[
+              "Unlimited job posts",
+              "Unlimited hires",
+              "Dedicated Manager",
+            ]}
+          />
+          <PricingCard
+            client:load
+            plan="Staff"
+            description="Everything in Platform, plus higher management workforces"
+            items={[
+              "Talent management",
+              "Vetting talent process",
+              "Vetted profiles",
+              "Payroll management",
+            ]}
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</Landing>

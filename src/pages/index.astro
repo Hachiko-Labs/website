@@ -1,3 +1,68 @@
 ---
-return Astro.redirect('/engineers');
+import Hero from "@components/Partners/Hero.astro";
+
+import Layout from "../layouts/Landing.astro";
+import Step1 from "@components/Partners/HowItWorks/Step1.astro";
+import Step2 from "@components/Partners/HowItWorks/Step2.astro";
+import Step3 from "@components/Partners/HowItWorks/Step3.astro";
+import { FAQ } from "@components/FAQ";
+import { Navbar } from "@components/Navbar";
+
+const FAQData = [
+  {
+    question: "How do I start?",
+    answer:
+      "Yes, you can easily upgrade or downgrade your plan at any time. Simply navigate to the account settings in your dashboard and choose the desired plan. The changes will be reflected immediately, and any adjustments in pricing will be applied on your next billing cycle. Our support team is more than happy to provide guidance and recommendations.",
+  },
+  {
+    question: "How do you vet your Engineers?",
+    answer:
+      "To claim your 25% discount, simply sign up for an account and enter the promotional code at checkout. The discount will be applied automatically to your purchase.",
+  },
+  {
+    question: "How do I hire an Engineer from you?",
+    answer:
+      "We offer a 30-day money-back guarantee on all our plans. If you're not satisfied with our product, simply contact our support team within 30 days of purchase for a full refund.",
+  },
+  {
+    question: "Can I request a tech interview / live coding/ test task?",
+    answer:
+      "Our dedicated support team is here to help. You can reach out to us through the contact form on our website, send an email, or engage with us via live chat. We'll be happy to assist you with any questions or concerns you may have",
+  },
+  {
+    question:
+      "Do you use software to track the developer’s progress/working hours?",
+    answer:
+      "Our dedicated support team is here to help. You can reach out to us through the contact form on our website, send an email, or engage with us via live chat. We'll be happy to assist you with any questions or concerns you may have",
+  },
+  {
+    question:
+      "I don’t like the developer, it’s not working out. how can you help me?",
+    answer:
+      "Our dedicated support team is here to help. You can reach out to us through the contact form on our website, send an email, or engage with us via live chat. We'll be happy to assist you with any questions or concerns you may have",
+  },
+];
+
+const navItems = [
+  { label: "For Engineers", href: "/engineers" },
+  { label: "How it works", href: "#how-it-works", ariaLabel: "How it works" },
+  { label: "Pricing", href: "/partners/pricing" },
+  { label: "FAQ", href: "#FAQ-Box" },
+];
 ---
+
+<Layout
+  title="Hachiko: Find and hire remote top software talent"
+  meta={{
+    name: "hachiko-labs",
+    content:
+      "We're helping US startups hire high-performing, remote software engineers to scale faster and more competitively.",
+  }}
+>
+  <Navbar client:load navItems={navItems} />
+  <Hero />
+  <Step1 />
+  <Step2 />
+  <Step3 />
+  <FAQ client:load faqData={FAQData} />
+</Layout>

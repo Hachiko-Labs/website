@@ -6,16 +6,11 @@ import "@fontsource/inter/600.css";
 import "@fontsource/inter/700.css";
 import { Sprite } from "astro-icon";
 
-import Navbar from "@components/Navbar.astro";
 import Footer from "@components/Footer.astro";
 
-const { title, meta } = Astro.props;
+import '../styles/global.css';
 
-const navItems = [
-  { label: "For Companies", href: "" },
-  { label: "How it works", href: "#how-it-works", ariaLabel: "How it works" },
-  { label: "FAQ", href: "#FAQ-Box" },
-];
+const { title, meta } = Astro.props;
 
 const footerData = [
   {
@@ -33,13 +28,13 @@ const footerData = [
       { title: "FAQ", href: "#FAQ-Box" },
     ],
   },
-  {
-    title: "Company",
-    items: [
-      { title: "About Us", href: "" },
-      { title: "Contact Us", href: "" }
-    ],
-  },
+  // {
+  //   title: "Company",
+  //   items: [
+  //     { title: "About Us", href: "" },
+  //     { title: "Contact Us", href: "" }
+  //   ],
+  // },
 ];
 ---
 
@@ -47,14 +42,13 @@ const footerData = [
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="mask-icon" href="/favicon.svg" color="#4a3aff" />
     <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <meta name={meta?.name} content={meta?.content} />
     <title>{title}</title>
   </head>
   <body>
-    <Navbar navItems={navItems} />
     <Sprite.Provider>
       <slot />
     </Sprite.Provider>
