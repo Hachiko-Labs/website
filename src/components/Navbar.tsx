@@ -9,7 +9,7 @@ export interface Props {
   }[];
 }
 
-const platformUrl = import.meta.env.PLATFORM_URL;
+const platformUrl = import.meta.env.PUBLIC_PLATFORM_URL;
 
 export const Navbar = ({ navItems }: Props) => {
   const [isOpen, setIsOpen] = useState(false);

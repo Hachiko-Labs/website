@@ -6,13 +6,23 @@ import { Fragment } from "react";
 
 interface Props {
   plan: string;
-  price: number;
+  price?: number;
+  description: string;
   items: string[];
   highlight?: boolean;
 }
 
+const platformUrl = import.meta.env.PUBLIC_PLATFORM_URL;
+
 export const PricingCard = ({ plan, description, price, items, highlight }: Props) => {
   const isYearly = useStore(isChecked);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    console.log(platformUrl)
+    window.open(platformUrl, "_blank");
+  }
+  
 
   return (
     <div className="w-[350px] sm:w-[380px] lg:w-1/3 px-4 mb-8 lg:mb-0">
@@ -48,6 +58,7 @@ export const PricingCard = ({ plan, description, price, items, highlight }: Prop
         </ul>
         <div
           className="inline-block text-center py-2 px-4 w-full rounded-xl rounded-t-xl bg-primary text-white cursor-pointer font-bold leading-loose mt-16"
+          onClick={handleClick}
         >
           Get Started
         </div>
