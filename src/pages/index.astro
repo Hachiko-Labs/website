@@ -1,5 +1,4 @@
 ---
-import Navbar from "@components/Navbar.astro";
 import Hero from "@components/Partners/Hero.astro";
 
 import Layout from "../layouts/Landing.astro";
@@ -7,6 +6,7 @@ import Step1 from "@components/Partners/HowItWorks/Step1.astro";
 import Step2 from "@components/Partners/HowItWorks/Step2.astro";
 import Step3 from "@components/Partners/HowItWorks/Step3.astro";
 import { FAQ } from "@components/FAQ";
+import { Navbar } from "@components/Navbar";
 
 const FAQData = [
   {
@@ -59,7 +59,7 @@ const navItems = [
       "We're helping US startups hire high-performing, remote software engineers to scale faster and more competitively.",
   }}
 >
-  <Navbar navItems={navItems} />
+  <Navbar client:load navItems={navItems} />
   <Hero />
   <Step1 />
   <Step2 />
