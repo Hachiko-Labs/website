@@ -7,11 +7,12 @@ export interface Props {
     href: string;
     ariaLabel?: string;
   }[];
+  hideCta?: boolean
 }
 
 const calendlyUrl = import.meta.env.PUBLIC_CALENDLY_URL;
 
-export const Navbar = ({ navItems }: Props) => {
+export const Navbar = ({ navItems, hideCta }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -68,9 +69,11 @@ export const Navbar = ({ navItems }: Props) => {
           ))}
         </div>
         <div className="flex gap-2">
-          <a href={calendlyUrl} target="_blank">
-            <Button type="primary">Schedule a call</Button>
-          </a>
+          {!hideCta && (
+            <a href={calendlyUrl} target="_blank">
+              <Button type="primary">Schedule a call</Button>
+            </a>
+          )}
           <div
             className="xl:hidden lg:hidden md:flex sm:flex flex-col px-2 py-3 border-solid border border-neutral-500 rounded-lg cursor-pointer hover:bg-customDarkBg2"
             onClick={() => setIsOpen(!isOpen)}
