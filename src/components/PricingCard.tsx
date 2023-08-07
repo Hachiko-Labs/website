@@ -12,15 +12,14 @@ interface Props {
   highlight?: boolean;
 }
 
-const platformUrl = import.meta.env.PUBLIC_PLATFORM_URL;
+const calendlyUrl = import.meta.env.PUBLIC_CALENDLY_URL;
 
 export const PricingCard = ({ plan, description, price, items, highlight }: Props) => {
   const isYearly = useStore(isChecked);
 
   const handleClick = (e) => {
     e.preventDefault();
-    console.log(platformUrl)
-    window.open(platformUrl, "_blank");
+    window.open(calendlyUrl, "_blank");
   }
   
 

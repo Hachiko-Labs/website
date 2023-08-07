@@ -9,7 +9,7 @@ export interface Props {
   }[];
 }
 
-const platformUrl = import.meta.env.PUBLIC_PLATFORM_URL;
+const calendlyUrl = import.meta.env.PUBLIC_CALENDLY_URL;
 
 export const Navbar = ({ navItems }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -68,8 +68,8 @@ export const Navbar = ({ navItems }: Props) => {
           ))}
         </div>
         <div className="flex gap-2">
-          <a href={platformUrl} target="_blank">
-            <Button type="primary">Sign up</Button>
+          <a href={calendlyUrl} target="_blank">
+            <Button type="primary">Schedule a call</Button>
           </a>
           <div
             className="xl:hidden lg:hidden md:flex sm:flex flex-col px-2 py-3 border-solid border border-neutral-500 rounded-lg cursor-pointer hover:bg-customDarkBg2"

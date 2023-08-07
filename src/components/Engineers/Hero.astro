@@ -14,7 +14,7 @@ const logos = [
   { icon: "/assets/Astro.svg", alt: "Astro" },
   { icon: "/assets/NodeJS.svg", alt: "Node JS" },
 ];
-const platformUrl = import.meta.env.PUBLIC_PLATFORM_URL
+const talentFormUrl = import.meta.env.PUBLIC_TALENT_FORM
 ---
 
 <section class="w-full flex items-center justify-center text-center pb-12">
@@ -37,7 +37,7 @@ const platformUrl = import.meta.env.PUBLIC_PLATFORM_URL
       top-tier US startups
     </div>
     <div class="flex flex-col sm:flex-row my-16 sm:my-12 justify-center">
-      <a href={platformUrl} target="_blank">
+      <a href={talentFormUrl} target="_blank">
         <Button client:visible type="primary">
           Get Started
         </Button>
