@@ -7,6 +7,7 @@ import "@fontsource/inter/700.css";
 import { Sprite } from "astro-icon";
 
 import Footer from "@components/Footer.astro";
+import { AnalyticsProvider } from "@contexts";
 
 import '../styles/global.css';
 
@@ -28,13 +29,6 @@ const footerData = [
       { title: "FAQ", href: "#FAQ-Box" },
     ],
   },
-  // {
-  //   title: "Company",
-  //   items: [
-  //     { title: "About Us", href: "" },
-  //     { title: "Contact Us", href: "" }
-  //   ],
-  // },
 ];
 ---
 
@@ -49,9 +43,11 @@ const footerData = [
     <title>{title}</title>
   </head>
   <body>
-    <Sprite.Provider>
-      <slot />
-    </Sprite.Provider>
+    <AnalyticsProvider>
+      <Sprite.Provider>
+        <slot />
+      </Sprite.Provider>
+    </AnalyticsProvider>
 
     <Footer footerData={footerData} />
 
