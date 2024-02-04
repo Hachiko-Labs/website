@@ -43,7 +43,7 @@ const footerData = [
     <title>{title}</title>
   </head>
   <body>
-    <AnalyticsProvider>
+    <AnalyticsProvider client:only>
       <Sprite.Provider>
         <slot />
       </Sprite.Provider>
