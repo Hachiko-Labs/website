@@ -43,14 +43,12 @@ const footerData = [
     <title>{title}</title>
   </head>
   <body>
-    <AnalyticsProvider client:only>
-      <Sprite.Provider>
+    <Sprite.Provider>
+      <AnalyticsProvider client:only>
         <slot />
-      </Sprite.Provider>
-    </AnalyticsProvider>
-
-    <Footer footerData={footerData} />
-
+        <Footer footerData={footerData} />
+      </AnalyticsProvider>
+    </Sprite.Provider>
     <style is:global>
       html,
       body {

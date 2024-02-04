@@ -2,9 +2,14 @@ import { useEffect } from "react";
 import { PostHogProvider, usePostHog } from 'posthog-js/react'
 
 const POSTHOG_KEY = import.meta.env.PUBLIC_POSTHOG_KEY;
+const POSTHOG_HOST = import.meta.env.PUBLIC_POSTHOG_HOST;
 
 interface Props {
   children: React.ReactNode;
+}
+
+const options = {
+  api_host: POSTHOG_HOST
 }
 
 export const AnalyticsProvider = ({ children }: Props) => {
@@ -17,7 +22,7 @@ export const AnalyticsProvider = ({ children }: Props) => {
   }, [posthog]);
 
   return (
-    <PostHogProvider apiKey={POSTHOG_KEY}>
+    <PostHogProvider apiKey={POSTHOG_KEY} options={options}>
       {children}
     </PostHogProvider>
   )
