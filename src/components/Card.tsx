@@ -1,13 +1,11 @@
-import { ReactNode } from 'react';
-
 type Size = 'small' | 'medium' | 'large'
 interface Props {
 	title?: string;
 	subtitle?: string;
-	footer?: ReactNode;
+	footer?: JSX.Element;
 	size?: Size;
 	className?: string;
-	children?: ReactNode;
+	children?: JSX.Element;
 }
 
 export const Card = ({ title, subtitle, footer, size, className, children }: Props) => {

@@ -1,9 +1,7 @@
-import { ReactNode } from "react";
-
 interface Props {
   repeat?: number;
   gap?: number;
-  children: ReactNode
+  children?: JSX.Element
 };
 
 export const Slider = ({ repeat, gap = 4, children }: Props) => {

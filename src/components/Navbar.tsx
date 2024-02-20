@@ -2,7 +2,7 @@ import { Button } from "@hachiko-labs/ui-components";
 import { useState } from "react";
 
 export interface Props {
-  navItems: {
+  navItems?: {
     label: string;
     href: string;
     ariaLabel?: string;
@@ -12,7 +12,7 @@ export interface Props {
 
 const calendlyUrl = import.meta.env.PUBLIC_CALENDLY_URL;
 
-export const Navbar = ({ navItems, hideCta }: Props) => {
+export const Navbar = ({ navItems = [], hideCta }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -51,7 +51,7 @@ export const Navbar = ({ navItems, hideCta }: Props) => {
               fill="#7663FF"
             />
           </svg>
-          <div className="text-neutral font-[Inter] font-bold flex gap-1">
+          <div className="text-neutral font-bold flex gap-1">
             <div className="text-xl">Hachiko</div>
             <div className="text-primary text-xl">Labs</div>
           </div>

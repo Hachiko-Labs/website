@@ -1,0 +1,38 @@
+---
+import { AnalyticsProvider } from "@contexts";
+
+import "@fontsource/geist-sans/400.css";
+import "@fontsource/geist-sans/500.css";
+import "@fontsource/geist-sans/600.css";
+import "@fontsource/geist-sans/700.css";
+import "@fontsource/geist-sans/800.css";
+
+const { title, meta } = Astro.props;
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name={meta?.name} content={meta?.content} />
+    <title>{title}</title>
+  </head>
+  <body class="w-screen h-screen">
+      <AnalyticsProvider client:only>
+        <slot />
+      </AnalyticsProvider>
+    <style is:global>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Geist Sans", sans-serif;
+        scroll-behavior: smooth;
+      }
+    </style>
+  </body>
+</html>

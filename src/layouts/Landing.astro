@@ -1,5 +1,4 @@
 ---
-import "../styles/globals.css";
 import "@fontsource/inter";
 import "@fontsource/inter/400.css";
 import "@fontsource/inter/600.css";
@@ -7,9 +6,7 @@ import "@fontsource/inter/700.css";
 import { Sprite } from "astro-icon";
 
 import Footer from "@components/Footer.astro";
-import { AnalyticsProvider } from "@contexts";
-
-import '../styles/global.css';
+// import { AnalyticsProvider } from "@contexts";
 
 const { title, meta } = Astro.props;
 
@@ -44,10 +41,10 @@ const footerData = [
   </head>
   <body>
     <Sprite.Provider>
-      <AnalyticsProvider client:only>
+      <!-- <AnalyticsProvider client:only> -->
         <slot />
         <Footer footerData={footerData} />
-      </AnalyticsProvider>
+      <!-- </AnalyticsProvider> -->
     </Sprite.Provider>
     <style is:global>
       html,

@@ -5,7 +5,7 @@ const POSTHOG_KEY = import.meta.env.PUBLIC_POSTHOG_KEY;
 const POSTHOG_HOST = import.meta.env.PUBLIC_POSTHOG_HOST;
 
 interface Props {
-  children: React.ReactNode;
+  children: JSX.Element
 }
 
 const options = {
