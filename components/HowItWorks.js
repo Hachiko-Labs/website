@@ -47,11 +47,11 @@ const Icon = ({ icon, className, ...props }) => {
 };
 const HowItWorks = () => {
   return (
-    <SectionContainer className="w-full grid grid-cols-12 text-left">
-      <h2 className="font-neco text-5xl text-foreground col-span-6">
+    <SectionContainer className="w-full grid grid-cols-12 text-left gap-4">
+      <h2 className="font-neco text-3xl md:text-4xl xl:text-5xl text-foreground col-span-12 lg:col-span-6">
         We lead you through <strong>every step</strong>
       </h2>
-      <div className="col-span-6 flex flex-col gap-2">
+      <div className="col-span-12 lg:col-span-6 flex flex-col gap-2">
         {steps.map((step) => (
           <Card key={step.title} className={step.className}>
             <CardHeader className="flex-row items-center gap-2">

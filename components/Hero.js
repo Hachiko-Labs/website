@@ -5,11 +5,11 @@ const Hero = () => {
   return (
     <SectionContainer className="gap-4">
       <div className="flex flex-col gap-12">
-        <h1 className="text-7xl font-neco text-foreground tracking-wide">
+        <h1 className="text-4xl md:text-6xl xl:text-7xl font-neco text-foreground tracking-wide">
           your product software partner for startup founders. full-stack
           development on a flexible subscription - cancel anytime
         </h1>
-        <h1 className="text-7xl font-neco text-foreground tracking-wide">
+        <h1 className="text-4xl md:text-6xl xl:text-7xl font-neco text-foreground tracking-wide">
           let’s collaborate today!
         </h1>
       </div>

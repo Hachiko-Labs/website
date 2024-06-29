@@ -2,21 +2,19 @@
 
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { buttonVariants } from "./ui/button";
 import { Terminal } from "lucide-react";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
   const navItems = useMemo(
     () => [
       {
-        name: "Services",
+        name: "How it works",
         href: "/",
       },
       {
-        name: "Projects",
+        name: "Work",
         href: "/",
       },
       {
@@ -35,14 +33,14 @@ const Navbar = () => {
 
   return (
     <nav className="w-full h-20 sticky top-0 flex justify-center items-center backdrop-blur-xl bg-white sm:bg-white/80 z-40">
-      <div className="w-10/12 h-full flex items-center justify-between relative">
-        <a className="flex items-center gap-2" href="/" aria-label="Home">
+      <div className="w-10/12 h-full flex items-center justify-center sm:justify-between relative">
+        <Link className="flex items-center gap-2" href="/" aria-label="Home">
           <div className="text-neutral font-bold flex gap-1">
             <Terminal size={24} />
-            <div className="text-xl">Hachiko Labs</div>
+            <div className="text-xl sm:text-2xl">Hachiko Labs</div>
           </div>
-        </a>
-        <div className="hidden sm:flex gap-12">
+        </Link>
+        <div className="hidden md:flex gap-12">
           {navItems.map(({ underline = true, ...navItem }) => (
             <div key={navItem.name} className="group relative">
               <Link
@@ -61,26 +59,6 @@ const Navbar = () => {
           ))}
         </div>
       </div>
-
-      {isOpen && (
-        <div
-          className="flex flex-col mt-16 lg:hidden absolute top-4 left-0  bg-white z-50 w-full 
-      items-center gap-10 pb-10 border-y border-solid border-customDarkBg3 pt-10
-      "
-        >
-          {navItems.map(({ label, href, ariaLabel }) => (
-            <Link
-              key={label}
-              className="navbar-link"
-              href={href}
-              onClick={() => setIsOpen(false)}
-              aria-label={ariaLabel}
-            >
-              {label}
-            </Link>
-          ))}
-        </div>
-      )}
     </nav>
   );
 };

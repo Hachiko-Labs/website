@@ -20,7 +20,7 @@ const navItems = [
 const Footer = () => {
   return (
     <SectionContainer className="w-full items-center gap-9">
-      <div className="hidden sm:flex gap-12">
+      <div className="flex gap-12">
         {navItems.map(({ underline = true, ...navItem }) => (
           <div key={navItem.name} className="group relative">
             <Link
@@ -38,7 +38,7 @@ const Footer = () => {
           </div>
         ))}
       </div>
-      <div className="hidden sm:flex gap-12">
+      <div className="flex gap-12">
         <Link
           href=""
           className="relative flex items-center py-2 h-full text-lg group"
