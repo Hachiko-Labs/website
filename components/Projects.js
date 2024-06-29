@@ -2,14 +2,18 @@
 
 import Image from "next/image";
 import { Button } from "./ui/button";
+import SectionContainer from "./SectionContainer";
+import { Badge } from "./ui/badge";
 
 const Projects = () => {
-    return (
-        <section class="w-screen flex flex-col items-center justify-center px-48 pt-16 gap-8">
-                <Button className="px-12" variant="outline">projects</Button>
-                <Image width={1200} height={100} src="/projects.png" />
-        </section>
-    )
+  return (
+    <SectionContainer>
+      <div className="mx-auto">
+        <Badge variant="outline" className="uppercase py-3 px-8">projects</Badge>
+      </div>
+      <Image width={1200} height={100} src="/projects.png" />
+    </SectionContainer>
+  );
 };
 
 export default Projects;
