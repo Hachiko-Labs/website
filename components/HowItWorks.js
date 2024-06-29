@@ -47,7 +47,7 @@ const Icon = ({ icon, className, ...props }) => {
 };
 const HowItWorks = () => {
   return (
-    <SectionContainer className="w-full grid grid-cols-12 text-left gap-4">
+    <SectionContainer id="how-it-works" className="w-full grid grid-cols-12 text-left gap-4">
       <h2 className="font-neco text-3xl md:text-4xl xl:text-5xl text-foreground col-span-12 lg:col-span-6">
         We lead you through <strong>every step</strong>
       </h2>

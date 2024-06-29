@@ -1,5 +1,6 @@
+import Link from "next/link";
 import SectionContainer from "./SectionContainer";
-import { Button } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 
 const WorkWithUs = () => {
   return (
@@ -8,7 +9,12 @@ const WorkWithUs = () => {
         Let&apos;s work together.
       </h1>
       <div>
-        <Button size="lg">Book a call</Button>
+        <Link
+          className={buttonVariants({ size: "lg" })}
+          href="https://meet.risecalendar.com/cnajera/15-min-meeting"
+        >
+          Book a call
+        </Link>
       </div>
     </SectionContainer>
   );

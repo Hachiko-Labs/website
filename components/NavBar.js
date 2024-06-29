@@ -5,27 +5,28 @@ import Link from "next/link";
 import { useMemo } from "react";
 import { buttonVariants } from "./ui/button";
 import { Terminal } from "lucide-react";
+import Logo from "./icons/logo";
 
 const Navbar = () => {
   const navItems = useMemo(
     () => [
       {
         name: "How it works",
-        href: "/",
+        href: "#how-it-works",
       },
       {
         name: "Work",
-        href: "/",
+        href: "#work",
       },
       {
         name: "About",
         href: "/",
       },
       {
-        name: "Work with us",
-        href: "/",
+        name: "Book a call",
+        href: "https://meet.risecalendar.com/cnajera/15-min-meeting",
         className: buttonVariants({ variant: "outline", size: "lg" }),
-        underline: false,
+        underline: false
       },
     ],
     []
@@ -35,9 +36,9 @@ const Navbar = () => {
     <nav className="w-full h-20 sticky top-0 flex justify-center items-center backdrop-blur-xl bg-white sm:bg-white/80 z-40">
       <div className="w-10/12 h-full flex items-center justify-center sm:justify-between relative">
         <Link className="flex items-center gap-2" href="/" aria-label="Home">
-          <div className="text-neutral font-bold flex gap-1">
-            <Terminal size={24} />
-            <div className="text-xl sm:text-2xl">Hachiko Labs</div>
+          <div className="text-neutral font-bold flex items-center gap-1">
+            <Logo size={24} />
+            <div className="text-2xl sm:text-xl">Hachiko Labs</div>
           </div>
         </Link>
         <div className="hidden md:flex gap-12">

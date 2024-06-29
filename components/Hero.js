@@ -1,5 +1,6 @@
+import Link from "next/link";
 import SectionContainer from "./SectionContainer";
-import { Button } from "./ui/button";
+import { buttonVariants } from "./ui/button";
 
 const Hero = () => {
   return (
@@ -15,7 +16,9 @@ const Hero = () => {
       </div>
       <div className="flex items-center gap-5">
         <div className="w-16 h-0 border border-foreground"></div>
-        <Button size="lg">Work with us</Button>
+        <Link target="_blank" className={buttonVariants({ size: "lg" })} href="https://tally.so/r/wvB5lv">
+          Work with us
+        </Link>
       </div>
     </SectionContainer>
   );

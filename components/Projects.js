@@ -14,13 +14,13 @@ const images = [
 
 const Projects = () => {
   return (
-    <SectionContainer>
+    <SectionContainer id="work" className="px-0">
       <div className="mx-auto">
-        <Badge variant="outline" className="uppercase py-3 px-8">
+        <Badge variant="outline" className="uppercase py-1 px-4 sm:py-3 sm:px-8">
           projects
         </Badge>
       </div>
-      <div className="mx-auto bg-foreground rounded-xl relative py-4 max-h-[700px] w-full h-full overflow-hidden flex flex-col gap-6">
+      <div className="mx-auto bg-foreground rounded-none md:rounded-lg relative py-4 max-h-[700px] w-full h-full overflow-hidden flex flex-col gap-6">
         <ParallaxSlideshow
           images={images}
           direction="left"

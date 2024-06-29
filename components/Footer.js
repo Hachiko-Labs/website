@@ -4,12 +4,12 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   {
-    name: "Services",
-    href: "/",
+    name: "How it works",
+    href: "#how-it-works",
   },
   {
-    name: "Projects",
-    href: "/",
+    name: "Work",
+    href: "#work",
   },
   {
     name: "About",
@@ -40,7 +40,8 @@ const Footer = () => {
       </div>
       <div className="flex gap-12">
         <Link
-          href=""
+          href="https://github.com/hachiko-Labs"
+          target="_blank"
           className="relative flex items-center py-2 h-full text-lg group"
         >
           <span className="sr-only">Github</span>
@@ -59,7 +60,8 @@ const Footer = () => {
           </svg>
         </Link>
         <Link
-          href=""
+          href="https://www.linkedin.com/company/hachikolabs"
+          target="_blank"
           className="relative flex items-center py-2 h-full text-lg group"
         >
           <span className="sr-only">LinkedIn</span>
@@ -77,7 +79,8 @@ const Footer = () => {
           </svg>
         </Link>
         <Link
-          href=""
+          href="https://www.instagram.com/hachiko.labs"
+          target="_blank"
           className="relative flex items-center py-2 h-full text-lg group"
         >
           <span className="sr-only">Instagram</span>
