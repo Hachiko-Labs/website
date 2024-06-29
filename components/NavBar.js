@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { buttonVariants } from "./ui/button";
+import { Terminal } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,8 +38,8 @@ const Navbar = () => {
       <div className="w-10/12 h-full flex items-center justify-between relative">
         <a className="flex items-center gap-2" href="/" aria-label="Home">
           <div className="text-neutral font-bold flex gap-1">
-            <div className="text-xl">Hachiko</div>
-            <div className="text-primary text-xl">Labs</div>
+            <Terminal size={24} />
+            <div className="text-xl">Hachiko Labs</div>
           </div>
         </a>
         <div className="hidden sm:flex gap-12">

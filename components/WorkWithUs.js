@@ -5,7 +5,7 @@ const WorkWithUs = () => {
   return (
     <SectionContainer className="w-full items-center gap-9">
       <h1 className="font-neco text-7xl text-foreground">
-        Let's work together.
+        Let&apos;s work together.
       </h1>
       <div>
         <Button size="lg">Book a call</Button>

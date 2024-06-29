@@ -11,7 +11,7 @@ const Projects = () => {
       <div className="mx-auto">
         <Badge variant="outline" className="uppercase py-3 px-8">projects</Badge>
       </div>
-      <Image width={1200} height={100} src="/projects.png" />
+      <Image width={1200} height={100} src="/projects.png" alt="Projects" />
     </SectionContainer>
   );
 };

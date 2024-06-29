@@ -1,4 +1,6 @@
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
+import HowItWorks from "@/components/HowItWorks";
 import Navbar from "@/components/NavBar";
 import Projects from "@/components/Projects";
 import WhoIsItFor from "@/components/WhoIsItFor";
@@ -13,8 +15,10 @@ export default function Home() {
         <Hero />
         <Projects />
         <WhyUs />
+        <HowItWorks />
         <WhoIsItFor />
         <WorkWithUs />
+        <Footer />
       </div>
     </main>
   );
