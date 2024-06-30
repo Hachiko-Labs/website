@@ -8,9 +8,6 @@ import Providers from "./providers";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-import Navbar from "@/components/NavBar";
-import Hero from "@/components/Hero";
-
 const neco = localFont({
   variable: "--font-family-neco",
   src: [
