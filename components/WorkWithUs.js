@@ -11,7 +11,7 @@ const WorkWithUs = () => {
       <div>
         <Link
           className={buttonVariants({ size: "lg" })}
-          href="https://meet.risecalendar.com/cnajera/15-min-meeting"
+          href="https://cal.com/chris-najera/20min"
         >
           Book a call
         </Link>

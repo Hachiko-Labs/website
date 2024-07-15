@@ -24,7 +24,7 @@ const Navbar = () => {
       },
       {
         name: "Book a call",
-        href: "https://meet.risecalendar.com/cnajera/15-min-meeting",
+        href: "https://cal.com/chris-najera/20min",
         className: buttonVariants({ variant: "outline", size: "lg" }),
         underline: false
       },
