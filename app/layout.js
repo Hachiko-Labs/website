@@ -7,6 +7,7 @@ import { GeistMono } from "geist/font/mono";
 import Providers from "./providers";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import PosthogAnalytics from "./client";
 
 const neco = localFont({
   variable: "--font-family-neco",
@@ -43,7 +44,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={cn(GeistSans.className, GeistMono.variable, neco.variable)}>
       <body className="bg-background text-foreground font-geist-sans antialiased">
-        <Providers>{children}</Providers>
+        <Providers>
+          <PosthogAnalytics>
+            {children}
+          </PosthogAnalytics>
+        </Providers>
       </body>
     </html>
   );

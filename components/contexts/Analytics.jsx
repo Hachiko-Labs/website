@@ -11,14 +11,6 @@ const options = {
 }
 
 export const AnalyticsProvider = ({ children }) => {
-  const posthog = usePostHog();
-
-  useEffect(() => {
-    if (posthog) {
-      posthog.capture("posthog instance: loaded");
-    }
-  }, [posthog]);
-
   return (
     <PostHogProvider apiKey={POSTHOG_KEY} options={options}>
       {children}
