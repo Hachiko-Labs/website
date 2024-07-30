@@ -81,7 +81,7 @@ const Pricing = () => {
       </h2>
       <div className="grid grid-cols-12 gap-4">
         {plans.map((plan) => (
-          <Card key={plan.title} className="col-span-4 bg-muted">
+          <Card key={plan.title} className="col-span-12 md:col-span-6 lg:col-span-4 bg-muted">
             <CardHeader>
               <CardTitle className="flex justify-between">
                 <span>{plan.title}</span>
@@ -99,16 +99,28 @@ const Pricing = () => {
                     {plan.frequency}
                   </span>
                 </div>
-                <Link
-                  href={plan.payment_link || "/"}
-                  target="_blank"
-                  className={cn(
-                    buttonVariants({ variant: "default" }),
-                    "w-full rounded-lg",
-                  )}
-                >
-                  Get Started
-                </Link>
+                <div>
+                  <Link
+                    href={plan.payment_link || "/"}
+                    target="_blank"
+                    className={cn(
+                      buttonVariants({ variant: "default" }),
+                      "w-full rounded-lg",
+                    )}
+                  >
+                    Get Started
+                  </Link>
+                  <Link
+                    href={config.scheduleLink}
+                    target="_blank"
+                    className={cn(
+                      buttonVariants({ variant: "link" }),
+                      "w-full rounded-lg mt-2",
+                    )}
+                  >
+                    Book a call
+                  </Link>
+                </div>
               </div>
               <div className="flex flex-col gap-4">
                 <h2 className="text-foreground text-xl font-bold">Features</h2>

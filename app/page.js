@@ -17,8 +17,8 @@ export default function Home() {
       <WhyUs />
       <HowItWorks />
       <WhoIsItFor />
-      <WorkWithUs />
       <Pricing />
+      <WorkWithUs />
       <Footer />
     </main>
   );
