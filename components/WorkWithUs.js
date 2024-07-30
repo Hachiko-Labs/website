@@ -1,6 +1,7 @@
 import Link from "next/link";
 import SectionContainer from "./SectionContainer";
-import { Button, buttonVariants } from "./ui/button";
+import { buttonVariants } from "./ui/button";
+import config from "@/config";
 
 const WorkWithUs = () => {
   return (
@@ -11,7 +12,7 @@ const WorkWithUs = () => {
       <div>
         <Link
           className={buttonVariants({ size: "lg" })}
-          href="https://cal.com/chris-najera/20min"
+          href={config.scheduleLink}
         >
           Book a call
         </Link>

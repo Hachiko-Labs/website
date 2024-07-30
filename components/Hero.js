@@ -11,7 +11,7 @@ const Hero = () => {
           development on a flexible subscription - cancel anytime
         </h1>
         <h1 className="text-4xl md:text-6xl xl:text-7xl font-neco text-foreground tracking-wide">
-          let’s collaborate today!
+          let&apos;s collaborate today!
         </h1>
       </div>
       <div className="flex items-center gap-5">

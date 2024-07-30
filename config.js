@@ -7,7 +7,8 @@ const config = {
   emailDomainName: "launchable.studio",
   stripe: {
     plans: []
-  }
+  },
+  scheduleLink: "https://cal.com/chris-najera/20min"
 };
 
 export default config;

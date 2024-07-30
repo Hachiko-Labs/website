@@ -6,6 +6,7 @@ import { useMemo } from "react";
 import { buttonVariants } from "./ui/button";
 import { Terminal } from "lucide-react";
 import Logo from "./icons/logo";
+import config from "@/config";
 
 const Navbar = () => {
   const navItems = useMemo(
@@ -24,7 +25,7 @@ const Navbar = () => {
       },
       {
         name: "Book a call",
-        href: "https://cal.com/chris-najera/20min",
+        href: config.scheduleLink,
         className: buttonVariants({ variant: "outline", size: "lg" }),
         underline: false
       },
