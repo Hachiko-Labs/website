@@ -1,3 +1,5 @@
+"use client";
+
 import { Check } from "lucide-react";
 import SectionContainer from "./SectionContainer";
 import {
@@ -12,6 +14,7 @@ import { buttonVariants } from "./ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import config from "@/config";
+import triggerScheduleCall from "@/lib/capi";
 
 const plans = [
   {
@@ -112,6 +115,9 @@ const Pricing = () => {
                   </Link>
                   <Link
                     href={config.scheduleLink}
+                    onClick={async () => {
+                      await triggerScheduleCall();
+                    }}
                     target="_blank"
                     className={cn(
                       buttonVariants({ variant: "link" }),
