@@ -8,6 +8,7 @@ import Providers from "./providers";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import PosthogAnalytics from "./client";
+import FacebookPixel from "@/components/FacebookPixel";
 
 const neco = localFont({
   variable: "--font-family-neco",
@@ -42,12 +43,17 @@ export const metadata = getSEOTags();
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={cn(GeistSans.className, GeistMono.variable, neco.variable)}>
+    <html
+      lang="en"
+      className={cn(GeistSans.className, GeistMono.variable, neco.variable)}
+      suppressHydrationWarning
+    >
+      <head>
+        <FacebookPixel />
+      </head>
       <body className="bg-background text-foreground font-geist-sans antialiased">
         <Providers>
-          <PosthogAnalytics>
-            {children}
-          </PosthogAnalytics>
+          <PosthogAnalytics>{children}</PosthogAnalytics>
         </Providers>
       </body>
     </html>

@@ -4,9 +4,10 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useMemo } from "react";
 import { buttonVariants } from "./ui/button";
-import { Terminal } from "lucide-react";
+// import { Terminal } from "lucide-react";
 import Logo from "./icons/logo";
 import config from "@/config";
+import triggerScheduleCall from "@/lib/capi";
 
 const Navbar = () => {
   const navItems = useMemo(
@@ -27,7 +28,11 @@ const Navbar = () => {
         name: "Book a call",
         href: config.scheduleLink,
         className: buttonVariants({ variant: "outline", size: "lg" }),
-        underline: false
+        underline: false,
+        onClick: async () => {
+          await triggerScheduleCall();
+        },
+        target: "_blank",
       },
     ],
     []
@@ -51,6 +56,8 @@ const Navbar = () => {
                   navItem.className
                 )}
                 href={navItem.href}
+                onClick={navItem.onClick}
+                target={navItem.target}
               >
                 {navItem.name}
               </Link>
