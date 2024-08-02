@@ -1,6 +1,6 @@
 "use client";
 
-import { Check } from "lucide-react";
+import { Check, Loader2 } from "lucide-react";
 import SectionContainer from "./SectionContainer";
 import {
   Card,
@@ -10,11 +10,12 @@ import {
   CardTitle,
 } from "./ui/card";
 import { Badge } from "./ui/badge";
-import { buttonVariants } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import config from "@/config";
 import triggerScheduleCall from "@/lib/capi";
+import { useState } from "react";
 
 const plans = [
   {
@@ -25,8 +26,8 @@ const plans = [
     frequency: "Bi-Weekly",
     payment_link: "https://buy.stripe.com/00g29Q8v1fNpaZybII",
     features: [
-      "One request at a time",
       "Dedicated Full-Stack developer",
+      "Unlimited revisions",
       "User friendly UI/UX designs",
       "Async communication",
       "No scopes, no quotes, no billable hours",
@@ -42,33 +43,34 @@ const plans = [
     frequency: "Bi-Weekly",
     payment_link: "https://buy.stripe.com/4gwcOu6mTbx91oYaEF",
     features: [
-      "Two request at a time",
       "Dedicated development team",
+      "Unlimited revisions",
       "User friendly UI/UX designs",
       "Async communication",
       "No scopes, no quotes, no billable hours",
       "Pause or cancel anytime",
     ],
   },
-  {
-    title: "Custom Plan",
-    description:
-      "Best for larger enterprises or complex projects requiring extensive resources and continuous development.",
-    price: "Contact",
-    frequency: "",
-    payment_link: config.scheduleLink,
-    features: [
-      "Three request at a time",
-      "Dedicated development team",
-      "User friendly UI/UX designs",
-      "Async communication",
-      "No scopes, no quotes, no billable hours",
-      "Pause or cancel anytime",
-    ],
-  },
+  // {
+  //   title: "Custom Plan",
+  //   description:
+  //     "Best for larger enterprises or complex projects requiring extensive resources and continuous development.",
+  //   price: "Contact",
+  //   frequency: "",
+  //   payment_link: config.scheduleLink,
+  //   features: [
+  //     "Three request at a time",
+  //     "Dedicated development team",
+  //     "User friendly UI/UX designs",
+  //     "Async communication",
+  //     "No scopes, no quotes, no billable hours",
+  //     "Pause or cancel anytime",
+  //   ],
+  // },
 ];
 
 const Pricing = () => {
+  const [loading, setLoading] = useState(false);
   return (
     <SectionContainer className="w-full text-left gap-9">
       <div className="mx-auto">
@@ -79,12 +81,12 @@ const Pricing = () => {
           Pricing
         </Badge>
       </div>
-      <h2 className="max-w-xl font-neco text-3xl md:text-4xl xl:text-5xl text-foreground">
+      <h2 className="max-w-xl mx-auto font-neco text-3xl md:text-4xl xl:text-5xl text-foreground">
         We&apos;ve got a plan that&apos;s <strong>Perfect for You</strong>
       </h2>
-      <div className="grid grid-cols-12 gap-4">
+      <div className="flex flex-col md:flex-row gap-4 items-center max-w-3xl mx-auto">
         {plans.map((plan) => (
-          <Card key={plan.title} className="col-span-12 md:col-span-6 lg:col-span-4 bg-muted">
+          <Card key={plan.title} className="flex-1 bg-muted">
             <CardHeader>
               <CardTitle className="flex justify-between">
                 <span>{plan.title}</span>
@@ -113,19 +115,26 @@ const Pricing = () => {
                   >
                     Get Started
                   </Link>
-                  <Link
+                  <Button
                     href={config.scheduleLink}
                     onClick={async () => {
-                      await triggerScheduleCall();
+                      try {
+                        setLoading(true);
+                        await triggerScheduleCall();
+                      } catch (error) {
+                        console.error("Error:", error);
+                        window.open(config.scheduleLink, "_blank");
+                      } finally {
+                        setLoading(false);
+                      }
                     }}
-                    target="_blank"
-                    className={cn(
-                      buttonVariants({ variant: "link" }),
-                      "w-full rounded-lg mt-2",
-                    )}
+                    variant="link"
+                    disabled={loading}
+                    className="w-full rounded-lg mt-2"
                   >
                     Book a call
-                  </Link>
+                    {loading && (<Loader2 className="w-4 h-4 animate-spin" />)}
+                  </Button>
                 </div>
               </div>
               <div className="flex flex-col gap-4">

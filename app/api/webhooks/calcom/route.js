@@ -15,7 +15,7 @@ export async function POST(req) {
 //   console.log(iCalUID);
 
   if (responses) {
-    const { name, email, phone, plan } = responses;
+    const { name, email, phone, plan, fbc, source } = responses;
 
     const parsedPlan = await parseContentWithAI(plan.value);
 
@@ -24,11 +24,12 @@ export async function POST(req) {
       event_id: uid,
       event_time: Math.floor(Date.now() / 1000),
       action_source: "website",
-      event_source_url: iCalUID,
+      event_source_url: source?.value,
       user_data: {
         em: await sha256(email.value),
         fn: await sha256(name.value),
         ph: await sha256(phone.value),
+        fbc: fbc?.value,
         client_user_agent: iCalUID,
         client_ip_address: webhookIp,
       },
@@ -37,7 +38,7 @@ export async function POST(req) {
       },
     };
 
-    // console.log(sendData);
+    console.log(sendData);
 
     try {
       const eventData = await conversionApi(

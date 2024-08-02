@@ -1,14 +1,24 @@
 "use client"
 
-import Link from "next/link";
-import SectionContainer from "./SectionContainer";
-import { buttonVariants } from "./ui/button";
 import config from "@/config";
+import SectionContainer from "./SectionContainer";
+import { Button } from "./ui/button";
 import triggerScheduleCall from "@/lib/capi";
+import { Loader2 } from "lucide-react";
+import { useState } from "react";
 
 const Hero = () => {
+  const [loading, setLoading] = useState(false);
   const handleClick = async () => {
-    await triggerScheduleCall();
+    try {
+      setLoading(true);
+      await triggerScheduleCall();
+    } catch (error) {
+      console.error("Error:", error);
+      window.open(config.scheduleLink, "_blank");
+    } finally {
+      setLoading(false);
+    }
   }
   return (
     <SectionContainer className="gap-4">
@@ -23,9 +33,10 @@ const Hero = () => {
       </div>
       <div className="flex items-center gap-5">
         <div className="w-16 h-0 border border-foreground"></div>
-        <Link target="_blank" onClick={handleClick} className={buttonVariants({ size: "lg" })} href={config.scheduleLink}>
+        <Button className="gap-2" onClick={handleClick} disabled={loading}>
           Work with us
-        </Link>
+          {loading && <Loader2 className="w-4 h-4 animate-spin" />}
+        </Button>
       </div>
     </SectionContainer>
   );

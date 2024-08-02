@@ -2,14 +2,15 @@
 
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { useMemo } from "react";
-import { buttonVariants } from "./ui/button";
+import { useMemo, useState } from "react";
+import { Button, buttonVariants } from "./ui/button";
 // import { Terminal } from "lucide-react";
 import Logo from "./icons/logo";
 import config from "@/config";
 import triggerScheduleCall from "@/lib/capi";
 
 const Navbar = () => {
+  const [loading, setLoading] = useState(false);
   const navItems = useMemo(
     () => [
       {
@@ -30,9 +31,16 @@ const Navbar = () => {
         className: buttonVariants({ variant: "outline", size: "lg" }),
         underline: false,
         onClick: async () => {
-          await triggerScheduleCall();
+          try {
+            setLoading(true);
+            await triggerScheduleCall();
+          } catch (error) {
+            console.error("Error:", error);
+            window.open(config.scheduleLink, "_blank");
+          } finally {
+            setLoading(false);
+          }
         },
-        target: "_blank",
       },
     ],
     []
@@ -50,17 +58,28 @@ const Navbar = () => {
         <div className="hidden md:flex gap-12">
           {navItems.map(({ underline = true, ...navItem }) => (
             <div key={navItem.name} className="group relative">
-              <Link
-                className={cn(
-                  "relative flex items-center py-2 h-full text-lg",
-                  navItem.className
-                )}
-                href={navItem.href}
-                onClick={navItem.onClick}
-                target={navItem.target}
-              >
-                {navItem.name}
-              </Link>
+              {navItem.onClick ? (
+                <Button
+                  className="gap-2"
+                  onClick={navItem.onClick}
+                  disabled={loading}
+                >
+                  {navItem.name}
+                  {loading && <Loader2 className="w-4 h-4 animate-spin" />}
+                </Button>
+              ) : (
+                <Link
+                  className={cn(
+                    "relative flex items-center py-2 h-full text-lg",
+                    navItem.className
+                  )}
+                  href={navItem.href}
+                  onClick={navItem.onClick}
+                  target={navItem.target}
+                >
+                  {navItem.name}
+                </Link>
+              )}
               {underline && (
                 <div className="absolute bottom-0 left-0 h-0.5 w-full bg-current transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left"></div>
               )}
