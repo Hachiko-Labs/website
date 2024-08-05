@@ -10,7 +10,7 @@ import WorkWithUs from "@/components/WorkWithUs";
 
 export default function Home() {
   return (
-    <main className="flex gap-4 min-h-screen flex-col items-center">
+    <main className="">
       <Navbar />
       <Hero />
       <Projects />

@@ -39,7 +39,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="w-full h-20 sticky top-0 flex justify-center items-center backdrop-blur-xl bg-white sm:bg-white/80 z-40">
+    <nav className="w-full h-20 sticky top-0 flex justify-center items-center backdrop-blur-xl bg-white/80 z-40">
       <div className="w-10/12 h-full flex items-center justify-center sm:justify-between relative">
         <Link className="flex items-center gap-2" href="/" aria-label="Home">
           <div className="text-neutral font-bold flex items-center gap-1">
