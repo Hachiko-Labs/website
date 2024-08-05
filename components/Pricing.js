@@ -15,17 +15,20 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import config from "@/config";
 import triggerScheduleCall from "@/lib/capi";
+import { animate, inView } from "motion";
+import { useEffect } from "react";
 
 const plans = [
   {
     title: "Basic Plan",
     description:
       "Ideal for startups or small projects requiring essential design and development services.",
-    price: "$2,000",
+    price: "$1,600",
+    discount: "$1,120",
     frequency: "Bi-Weekly",
     payment_link: "https://buy.stripe.com/00g29Q8v1fNpaZybII",
     features: [
-      "One request at a time",
+      "One revision per month",
       "Dedicated Full-Stack developer",
       "User friendly UI/UX designs",
       "Async communication",
@@ -38,11 +41,12 @@ const plans = [
     description:
       "Suitable for growing businesses needing more comprehensive support and faster turnaround times.",
     popular: true,
-    price: "$3,500",
+    price: "$2,800",
+    discount: "$1,960",
     frequency: "Bi-Weekly",
     payment_link: "https://buy.stripe.com/4gwcOu6mTbx91oYaEF",
     features: [
-      "Two request at a time",
+      "Two revisions per month",
       "Dedicated development team",
       "User friendly UI/UX designs",
       "Async communication",
@@ -69,22 +73,55 @@ const plans = [
 ];
 
 const Pricing = () => {
+  useEffect(() => {
+    inView("#pricing", ({ target }) => {
+      animate(
+        target.querySelector("#badge-pricing"),
+        { opacity: 1, transform: "none" },
+        { delay: 0.2, duration: 0.9, easing: [0.17, 0.55, 0.55, 1] }
+      );
+      animate(
+        target.querySelector("h2"),
+        { opacity: 1, transform: "none" },
+        { delay: 0.4, duration: 0.9, easing: [0.17, 0.55, 0.55, 1] }
+      );
+      animate(
+        target.querySelector(".card-item:nth-child(1)"),
+        { opacity: 1, transform: "none" },
+        { delay: 0.6, duration: 0.9, easing: [0.17, 0.55, 0.55, 1] }
+      );
+      animate(
+        target.querySelector(".card-item:nth-child(2)"),
+        { opacity: 1, transform: "none" },
+        { delay: 0.8, duration: 0.9, easing: [0.17, 0.55, 0.55, 1] }
+      );
+      animate(
+        target.querySelector(".card-item:nth-child(3)"),
+        { opacity: 1, transform: "none" },
+        { delay: 1, duration: 0.9, easing: [0.17, 0.55, 0.55, 1] }
+      );
+    });
+  }, []);
   return (
-    <SectionContainer className="w-full text-left gap-9">
+    <SectionContainer id="pricing" className="w-full text-left gap-9">
       <div className="mx-auto">
         <Badge
+          id="badge-pricing"
           variant="outline"
-          className="uppercase py-1 px-4 sm:py-3 sm:px-8"
+          className="-translate-y-12 opacity-0 uppercase py-1 px-4 sm:py-3 sm:px-8"
         >
           Pricing
         </Badge>
       </div>
-      <h2 className="max-w-xl font-neco text-3xl md:text-4xl xl:text-5xl text-foreground">
+      <h2 className="-translate-y-12 opacity-0 max-w-xl font-neco text-3xl md:text-4xl xl:text-5xl text-foreground">
         We&apos;ve got a plan that&apos;s <strong>Perfect for You</strong>
       </h2>
       <div className="grid grid-cols-12 gap-4">
         {plans.map((plan) => (
-          <Card key={plan.title} className="col-span-12 md:col-span-6 lg:col-span-4 bg-muted">
+          <Card
+            key={plan.title}
+            className="-translate-x-8 opacity-0 card-item col-span-12 md:col-span-6 lg:col-span-4 bg-muted"
+          >
             <CardHeader>
               <CardTitle className="flex justify-between">
                 <span>{plan.title}</span>
@@ -94,13 +131,29 @@ const Pricing = () => {
             </CardHeader>
             <CardContent className="flex flex-col gap-8">
               <div className="flex flex-col gap-4">
-                <div className="flex items-end gap-2">
-                  <span className="text-foreground text-5xl font-bold">
-                    {plan.price}
-                  </span>
-                  <span className="text-foreground/60 text-sm md:text-lg xl:text-xl">
-                    {plan.frequency}
-                  </span>
+                <div className="flex items-center gap-2">
+                  {plan.frequency ? (
+                    <>
+                      <div className="flex flex-col">
+                        {/* Original price and discounted price */}
+                        <span className="text-foreground text-2xl md:text-3xl xl:text-4xl font-bold">
+                          {plan.discount}
+                        </span>
+                        <span className="text-foreground/60 text-sm md:text-lg xl:text-xl line-through">
+                          {plan.price}
+                        </span>
+                      </div>
+                      <span className="text-foreground/60 text-sm md:text-lg xl:text-xl">
+                        {plan.frequency}
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      <span className="text-foreground text-2xl md:text-3xl xl:text-4xl font-bold">
+                        {plan.price}
+                      </span>
+                    </>
+                  )}
                 </div>
                 <div>
                   <Link
@@ -108,7 +161,7 @@ const Pricing = () => {
                     target="_blank"
                     className={cn(
                       buttonVariants({ variant: "default" }),
-                      "w-full rounded-lg",
+                      "w-full rounded-lg"
                     )}
                   >
                     Get Started
@@ -121,7 +174,7 @@ const Pricing = () => {
                     target="_blank"
                     className={cn(
                       buttonVariants({ variant: "link" }),
-                      "w-full rounded-lg mt-2",
+                      "w-full rounded-lg mt-2"
                     )}
                   >
                     Book a call
